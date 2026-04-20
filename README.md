@@ -4,7 +4,7 @@
 ![React](https://img.shields.io/badge/React-19.2.4-61DAFB?style=flat&logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-6.0.2-3178C6?style=flat&logo=typescript) ![Vite](https://img.shields.io/badge/Vite-8.0.4-646CFF?style=flat&logo=vite) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
 
 ## Project Description
-This is the official website for B.B.S. Group of Educational Institutes, a premier institution offering 16 paramedical diploma courses, 5 counseling programs, and comprehensive educational services. The site showcases courses, faculty, admissions, events, and more, built as a modern React single-page application.
+This is the official website for B.B.S. Group of Educational Institutes, a premier institution offering 16 paramedical diploma courses, 5 counseling programs, and comprehensive educational services. The site showcases courses, faculty, admissions, events, and more, built as a modern React multi-page application.
 
 ## Getting Started
 
