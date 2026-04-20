@@ -1,4 +1,5 @@
-﻿import type { DiplomaData } from '../../types/diploma.types'
+import type { DiplomaData } from '../../types/diploma.types'
+import { useState } from 'react'
 import PageBreadcrumb from '../../components/layout-shell/PageBreadcrumb'
 import CourseCategoryBadge from '../../components/badge-elements/CourseCategoryBadge'
 import PrimaryBtn from '../../components/button-elements/PrimaryBtn'
@@ -35,7 +36,42 @@ const DownloadIcon = () => (
   </svg>
 )
 
+const ShareIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 16V3" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7l4-4 4 4" />
+  </svg>
+)
+
 const DiplomaDetailHero = ({ diploma }: DiplomaDetailHeroProps) => {
+  const [shareLabel, setShareLabel] = useState('Copy Course Link')
+  const courseDetailPath = getCourseDetailPath(diploma.slug)
+
+  const resetShareLabel = () => {
+    setTimeout(() => setShareLabel('Copy Course Link'), 2200)
+  }
+
+  const handleCopyCourseLink = () => {
+    if (typeof window === 'undefined' || !navigator.clipboard) {
+      setShareLabel('Link Unavailable')
+      resetShareLabel()
+      return
+    }
+
+    const absoluteCourseUrl = new URL(courseDetailPath, window.location.origin).toString()
+
+    void navigator.clipboard.writeText(absoluteCourseUrl)
+      .then(() => {
+        setShareLabel('Link Copied')
+        resetShareLabel()
+      })
+      .catch(() => {
+        setShareLabel('Copy Failed')
+        resetShareLabel()
+      })
+  }
+
   return (
     <section className="course-detail-hero">
       {/* Background image */}
@@ -106,6 +142,14 @@ const DiplomaDetailHero = ({ diploma }: DiplomaDetailHeroProps) => {
             <PrimaryBtn href={ROUTES.ADMISSIONS} size="lg">
               Apply for Admission
             </PrimaryBtn>
+            <OutlineBtn
+              variant="white"
+              size="lg"
+              icon={<ShareIcon />}
+              onClick={handleCopyCourseLink}
+            >
+              {shareLabel}
+            </OutlineBtn>
             <OutlineBtn
               href="/static-assets/downloadable-docs/bbs-prospectus-2024-25.pdf"
               variant="white"
