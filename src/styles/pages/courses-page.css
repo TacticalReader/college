@@ -402,7 +402,9 @@
 
 .counseling-section__title-wrap {
     display: flex;
-
+    flex: 1 1 420px;
+    flex-direction: column;
+    min-width: 0;
 }
 
 .counseling-section__eyebrow {
@@ -621,6 +623,18 @@
 
     .counseling-courses-grid {
         grid-template-columns: 1fr;
+    }
+
+    .counseling-section__title-wrap {
+        flex-basis: 100%;
+    }
+
+    .counseling-section__heading {
+        font-size: var(--text-xl);
+    }
+
+    .counseling-section__desc {
+        max-width: 100%;
     }
 
     .courses-cta-banner {
