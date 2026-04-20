@@ -903,9 +903,8 @@
 .quick-notice__text {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  line-height: var(--leading- snug);
+  line-height: var(--leading-snug);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
