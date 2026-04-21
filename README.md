@@ -125,7 +125,7 @@ The website serves as the primary digital presence for the institute, covering:
 
 ## Live Demo
 
-> **Production URL:** `https://bbsinstitute.ac.in` *(update once deployed)*
+> **Production URL:** `(https://college-eight-lovat.vercel.app/)` 
 
 ---
 
