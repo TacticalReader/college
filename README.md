@@ -1,6 +1,5 @@
 # B.B.S. GROUP OF EDUCATIONAL INSTITUTES — College Website
 
-## Badges
 ![React](https://img.shields.io/badge/React-19.2.4-61DAFB?style=flat&logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-6.0.2-3178C6?style=flat&logo=typescript) ![Vite](https://img.shields.io/badge/Vite-8.0.4-646CFF?style=flat&logo=vite) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
 
 ## Project Description
