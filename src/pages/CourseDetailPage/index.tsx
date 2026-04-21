@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import SeoMetaTags from '../../components/utility-elements/SeoMetaTags'
 import DiplomaDetailHero from './DiplomaDetailHero'
@@ -59,7 +59,7 @@ const NotFoundIcon = () => (
 
 const CourseDetailPage = () => {
   const { slug } = useParams<{ slug: string }>()
-  const navigate = useNavigate()
+
 
   /* ---- Find the diploma by slug ---- */
   const diploma = slug ? findBySlug(slug) : undefined
@@ -116,11 +116,22 @@ const CourseDetailPage = () => {
               <p style={{ fontSize: 'var(--text-base)', color: 'var(--color-text-secondary)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-6)', maxWidth: '680px' }}>
                 {counselingProgram.description}
               </p>
-              <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-text-muted)', marginBottom: 'var(--space-6)' }}>
-                <strong>Duration:</strong> {counselingProgram.duration} &nbsp;|&nbsp;
-                <strong>Eligibility:</strong> {counselingProgram.eligibility} &nbsp;|&nbsp;
-                <strong>Counseling Body:</strong> {counselingProgram.externalCounselingBody}
-              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)', marginBottom: 'var(--space-6)' }}>
+                {[
+                  { label: 'Duration', value: counselingProgram.duration },
+                  { label: 'Eligibility', value: counselingProgram.eligibility },
+                  { label: 'Counseling Body', value: counselingProgram.externalCounselingBody },
+                ].map((item) => (
+                  <span key={item.label} style={{
+                    display: 'inline-flex', gap: '4px', alignItems: 'center',
+                    fontSize: 'var(--text-sm)', color: 'var(--color-text-muted)',
+                    background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)',
+                    borderRadius: 'var(--radius-md)', padding: '4px 10px',
+                  }}>
+                    <strong style={{ color: 'var(--color-text-primary)' }}>{item.label}:</strong>&nbsp;{item.value}
+                  </span>
+                ))}
+              </div>
               <PrimaryBtn href={ROUTES.ADMISSIONS} size="lg">
                 Get Counseling Guidance
               </PrimaryBtn>
