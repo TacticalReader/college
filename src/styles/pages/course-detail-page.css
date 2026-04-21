@@ -801,6 +801,7 @@
    RESPONSIVE
 ============================================================ */
 
+/* ---- Tablet (≤1024px) ---- */
 @media (max-width: 1024px) {
     .course-detail-layout {
         grid-template-columns: 1fr;
@@ -819,7 +820,7 @@
     }
 
     .career-roles-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .related-courses__grid {
@@ -827,20 +828,141 @@
     }
 }
 
-@media (max-width: 640px) {
-    .course-detail-hero__title {
-        font-size: var(--text-2xl);
+/* ---- Mobile (≤768px) ---- */
+@media (max-width: 768px) {
+    /* Hero */
+    .course-detail-hero {
+        min-height: auto;
     }
 
+    .course-detail-hero__inner {
+        padding-top: calc(var(--navbar-height) + var(--space-8));
+        padding-bottom: var(--space-10);
+    }
+
+    .course-detail-hero__title {
+        font-size: var(--text-2xl);
+        max-width: 100%;
+    }
+
+    /* Hide the vertical | dividers between stats so they wrap cleanly */
+    .course-detail-hero__divider {
+        display: none;
+    }
+
+    .course-detail-hero__stats-row {
+        gap: var(--space-2) var(--space-4);
+    }
+
+    /* Stack CTA buttons vertically */
+    .course-detail-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Main content vertical padding */
+    .course-detail-main {
+        padding: var(--space-8) 0;
+    }
+
+    /* Overview panel */
+    .overview-panel {
+        padding: var(--space-6) 0;
+    }
+
+    /* Career grid goes single column on mobile */
+    .career-roles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Related courses grid */
+    .related-courses__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Tab nav: shrink horizontal padding so 5 tabs fit */
+    .content-tabs__tab {
+        padding: var(--space-3) var(--space-3);
+        font-size: var(--text-xs);
+    }
+}
+
+/* ---- Small Mobile (≤640px) ---- */
+@media (max-width: 640px) {
+    .course-detail-hero__title {
+        font-size: var(--text-xl);
+        letter-spacing: -0.01em;
+    }
+
+    .course-detail-hero__short-title {
+        font-size: 11px;
+    }
+
+    .course-detail-hero__inner {
+        padding-top: calc(var(--navbar-height) + var(--space-6));
+        padding-bottom: var(--space-8);
+    }
+
+    /* Eligibility cards: single column */
     .eligibility-panel__cards {
         grid-template-columns: 1fr;
     }
 
+    /* Fee summary: single column */
     .duration-fees-panel__summary {
         grid-template-columns: 1fr;
     }
 
+    /* Related courses: single column */
     .related-courses__grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Hide tab icons to save horizontal space */
+    .content-tabs__tab-icon {
+        display: none;
+    }
+
+    .content-tabs__tab {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-xs);
+        flex: 1;
+        justify-content: center;
+    }
+
+    /* Sidebar cards full width */
+    .enquiry-widget,
+    .quick-info-card {
+        width: 100%;
+    }
+}
+
+/* ---- Very Small Mobile (≤480px) ---- */
+@media (max-width: 480px) {
+    .course-detail-hero__title {
+        font-size: var(--text-lg);
+    }
+
+    .course-detail-hero__actions {
+        gap: var(--space-2);
+    }
+
+    /* Fee summary: stacked with smaller value text */
+    .fee-summary-card__value {
+        font-size: var(--text-lg);
+    }
+
+    .fee-summary-card--total .fee-summary-card__value {
+        font-size: var(--text-xl);
+    }
+
+    /* Related title smaller */
+    .related-courses__title {
+        font-size: var(--text-xl);
+    }
+
+    /* Content tabs: ensure no horizontal overflow */
+    .content-tabs__nav {
+        padding-bottom: 2px;
     }
 }
